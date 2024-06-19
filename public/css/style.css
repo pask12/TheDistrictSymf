@@ -1,0 +1,75 @@
+body {
+    background-color: #222222;
+}
+h1, p {
+    color: #C9C9C9;
+}
+
+/* !important prend en priorité la propriété */
+
+.navbar{
+    background-color: rgb(6, 150, 150) !important;
+  
+}
+/* .nav-item{
+    color:white
+} */
+
+
+.nav-link{
+    color: black !important;
+}
+
+.parallax{
+    position: absolute;
+    top:176px;
+    min-width: 100%;
+    min-height: 800px;
+     background-image: url("../images/images_the_district/ibg.jpg");
+     background-position: center ;
+     background-attachment: fixed;
+     background-repeat: no-repeat;
+     background-size: cover;
+     z-index: -1;
+     
+ }
+
+
+ .icons li{
+    list-style: none;
+ }
+ /* politique confidentialité et mention légale */
+
+.link{
+    text-decoration: none;
+    list-style: none;
+    font-weight: bold;
+    color: black;
+    font-size: 20px;
+ }
+ 
+ .link:hover{
+    color: white;
+ }
+ 
+ .img-card{
+    max-height: 250px;
+    object-fit: cover;
+ }
+
+ video{
+    width : 50%;
+    height : 50%;
+    justify-content:  center;
+    position : relative;
+ }
+
+ .nav-link:hover{
+color:white !important;
+ }
+
+ .title-page{
+    text-align: center;
+    color: black;
+
+ }
