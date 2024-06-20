@@ -4,21 +4,29 @@ body {
 h1, p {
     color: #C9C9C9;
 }
+.title-page{
+    text-align: center;
+    color: black;
+
+ }
+
+
+/* navbar */
 
 /* !important prend en priorité la propriété */
 
 .navbar{
-    background-color: rgb(6, 150, 150) !important;
+    background-color: black!important;
   
 }
-/* .nav-item{
-    color:white
-} */
-
-
 .nav-link{
-    color: black !important;
+    color: white!important;
 }
+.nav-link:hover{
+    color: green !important;
+     }
+
+
 
 .parallax{
     position: absolute;
@@ -33,13 +41,12 @@ h1, p {
      z-index: -1;
      
  }
-
+/* footer */
 
  .icons li{
     list-style: none;
  }
  /* politique confidentialité et mention légale */
-
 .link{
     text-decoration: none;
     list-style: none;
@@ -47,11 +54,12 @@ h1, p {
     color: black;
     font-size: 20px;
  }
- 
  .link:hover{
-    color: white;
+    color: green;
  }
  
+
+
  .img-card{
     max-height: 250px;
     object-fit: cover;
@@ -64,12 +72,5 @@ h1, p {
     position : relative;
  }
 
- .nav-link:hover{
-color:white !important;
- }
 
- .title-page{
-    text-align: center;
-    color: black;
 
- }
