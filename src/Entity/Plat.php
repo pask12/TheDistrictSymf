@@ -19,7 +19,7 @@ class Plat
     #[ORM\Column(length: 50)]
     private ?string $libelle = null;
 
-    #[ORM\Column(length: 50)]
+    #[ORM\Column(length: 255)]
     private ?string $description = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 6, scale: 2)]

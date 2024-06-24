@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{# {% extends 'base.html.twig' %}
 
 {% block title %}Hello PlatsController!{% endblock %}
 
@@ -17,4 +17,24 @@
         <li>Your template at <code>/home/pascal/Bureau/TheDistrictSymfony/templates/plats/index.html.twig</code></li>
     </ul>
 </div>
+{% endblock %} #}
+
+{% extends 'base.html.twig' %}
+ {% block body %}
+     <div class="container">
+         <div class="row mt-5">
+             <div class="col-sm-8 offset-sm-2">
+                 <h1 class="title-page mt-5 mb-5 mx-5">The District Restaurant</h1>
+                 {# <p>Hello World !!!</p> #}
+                    {% for plat in plats %}
+                        <div class="card mb-3">
+                            <div class="card-body">
+                            <h5 class="card-title">{{ plat.libelle }}</h5>
+                            <p class="card-text">{{ plat.description }}</p>
+                             </div>
+                        </div>
+                    {% endfor %}
+            </div>
+        </div>
+    </div>
 {% endblock %}
