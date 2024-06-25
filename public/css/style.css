@@ -58,12 +58,21 @@ h1, p {
     color: green;
  }
  
-
+/* card */
 
  .img-card{
     max-height: 250px;
     object-fit: cover;
  }
+
+ .card{
+    transition: all 0.3s;
+}
+
+ .card:hover{
+    transform:scale(1.05);
+ }
+
 
  video{
     width : 50%;

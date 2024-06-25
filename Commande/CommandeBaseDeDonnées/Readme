@@ -1,0 +1,18 @@
+Vous avez par défaut deux fichiers .env : .env et .env.test
+
+Créer un autre fichier que vous appelerez .env.local
+
+Dans le fichier .env.local, implementer ceci : 
+
+DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name?serverVersion=mariadb-10.3.34&charset=utf8mb4" 
+
+Remplacez les valeurs par défaut par vos propres valeurs.
+
+
+Et ensuite deux commandes sont disponibles pour supprimer et créer la base de données :
+
+SUPPRIMER : " php bin/console doctrine:database:drop --force "
+
+CREER : " php bin/console doctrine:database:create "
+
+(il ne s'agit que de la base)

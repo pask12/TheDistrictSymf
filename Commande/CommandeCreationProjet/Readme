@@ -1,0 +1,3 @@
+Pour créer une nouvelle application Symfony ou projet exécuter la commande suivante: " composer create-project symfony/skeleton:"6.X.*" NomDuDossier "
+
+Ensuite, positionnez-vous dans le repertoire du projet et entrez la commande : " composer require webapp "

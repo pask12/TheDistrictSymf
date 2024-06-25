@@ -1,0 +1,4 @@
+" Lancement du serveur local : symfony serve "
+" Pour arrêter le serveur, appuyer sur Ctrl C à partir du terminal. "
+Vous avez aussi la commande à saisir dans le terminal pour installer cet outil pour le certificat: " sudo apt install libnss3-tools "
+" Remarque Si vous souhaitez passer votre version locale du site en https, vous devez entrez cette commande: "symfony server:ca:install" "

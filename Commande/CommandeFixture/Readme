@@ -1,0 +1,27 @@
+Un maker est disponible pour créer un squelette de fixture 
+
+php bin/console make:fixture "NomFixture"
+
+Cette commande crée un fichier src/DataFixtures/"NomFixture".php
+
+Si vous rencontrez cette erreur
+
+ [ERROR] Missing package: to use the make:fixtures command, run:                                                        
+    composer require orm-fixtures --dev
+
+Il vous faudra taper la commande : composer require orm-fixtures --dev   
+
+et ensuite de nouveau la commande : php bin/console make:fixture "NomFixture"
+
+ensuite oublier pas d'utiliser les commande "use" pour dire a symfony d'utiliser les entity/table creer dans votre BDD (base de données) , voir image : Commande/CommandeFixture/use.png
+
+
+Pour exécuter votre fixture
+
+php bin/console doctrine:fixtures:load
+// ou                                           (LES 2 COMMANDE FONT LA MEME FOUTUE CHOSE SI JAMAIS)
+php bin/console d:f:l
+
+Symfony vous demande une confirmation avant de purger votre base. Tu fais "YES" comme un bon éléve :) 
+
+Une fois votre fixture insérée, vérifiez dans votre base que les données sont bien présentes.

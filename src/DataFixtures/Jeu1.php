@@ -59,7 +59,7 @@ class Jeu1 extends Fixture
         $Veggie = new Categorie();
         $Veggie->setLibelle("Veggie");
         $Veggie->setImage("veggie_cat.jpg");
-        $Veggie->setActive("1");
+        $Veggie->setActive("0");
         $manager->persist($Veggie);
 
        
@@ -68,7 +68,7 @@ class Jeu1 extends Fixture
 
         $District_Burger = new Plat();
         $District_Burger->setLibelle("District Burger");
-        $District_Burger->setDescription("boulanger, deux steaks de 80g (origine française), de deux tranches poitrine de porc fumée, de deux tranches cheddar affiné, salade et oignons confits.");
+        $District_Burger->setDescription("Burger composé d’un bun’s du boulanger, deux steaks de 80g (origine française), de deux tranches poitrine de porc fumée, de deux tranches cheddar affiné, salade et oignons confits.");
         $District_Burger->setPrix("8.00");
         $District_Burger->setImage("hamburger.jpg");
         $District_Burger->setActive("1");
@@ -130,7 +130,7 @@ class Jeu1 extends Fixture
         $manager->persist($Pizza_Margherita);
 
         $Courgettes_farcies= new Plat();
-        $Courgettes_farcies->setLibelle("Courgettes_farcies");
+        $Courgettes_farcies->setLibelle("Courgettes farcies");
         $Courgettes_farcies->setDescription("Voici une recette équilibrée à base de courgettes, quinoa et champignons, 100% vegan et sans gluten!");
         $Courgettes_farcies->setPrix("8.00");
         $Courgettes_farcies->setImage("courgettes_farcies.jpg");

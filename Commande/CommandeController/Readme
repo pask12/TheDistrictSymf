@@ -1,0 +1,8 @@
+" La façon la plus efficace de créer un contrôleur ou en language simplifier la creation d'une page est d'utiliser le maker : " php bin/console make:controller accueil " "
+  cette commande creer dans notre fichier controller , un controller avec le nom que vous lui avez donner et dans nos template une page correspondante 
+ 
+ ex : "php bin/console make:controller ProfilController"
+
+      "created: src/ Controller / "Profil" Controller.php"
+
+      "created: templates / "profil" / index.html.twig"

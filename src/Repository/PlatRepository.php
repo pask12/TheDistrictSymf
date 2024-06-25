@@ -16,6 +16,17 @@ class PlatRepository extends ServiceEntityRepository
         parent::__construct($registry, Plat::class);
     }
 
+    public function findByCategorie($id) : array
+    {
+        return $this->createQueryBuilder('p')
+        ->where('p.categorie = :id')
+        ->setParameter('id', $id)
+        ->addOrderBy('p.id', 'ASC')
+        ->getQuery()
+        ->getResult()
+        ;
+    }
+
 //    /**
 //     * @return Plat[] Returns an array of Plat objects
 //     */
