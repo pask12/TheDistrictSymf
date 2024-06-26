@@ -7,24 +7,22 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
+use function PHPUnit\Framework\isNull;
+
 class PlatsController extends AbstractController
 {
-    #[Route('/plats', name: 'app_plats')]
-    public function index(PlatRepository $platRepository): Response
+    #[Route(['/plats', '/plats/{categorie_id}'], name: 'app_plats', defaults: ['categorie_id' => NULL]),]
+    public function index(PlatRepository $platRepository, $categorie_id): Response
     {
-        $plats = $platRepository->findAll();
-        return $this->render('plats/index.html.twig', [
-            'controller_name' => 'PlatsController',
-            'plats' => $plats,
-        ]);
-    }
+        if ($categorie_id === NULL) {
+          $plats = $platRepository->findAll();
+        } else {
+          $plats = $platRepository->findByCategorie($categorie_id);
+        }
 
-    #[Route('/plats/{categorie_id}')]
-    public function plats_par_categorie(PlatRepository $platRepository, $categorie_id): Response
-    {
-        $plats = $platRepository->findByCategorie($categorie_id);
         return $this->render('plats/index.html.twig', [
             'plats' => $plats,
-        ]);
+          ]);
+
     }
 }
