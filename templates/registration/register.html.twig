@@ -1,0 +1,95 @@
+{# {% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    {% for flash_error in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+    {% endfor %}
+
+    <h1>Register</h1>
+
+    {{ form_errors(registrationForm) }}
+
+    {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Password'
+        }) }}
+        {{ form_row(registrationForm.agreeTerms) }}
+
+        <button type="submit" class="btn">Register</button>
+    {{ form_end(registrationForm) }}
+{% endblock %} #}
+
+
+
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-sm-8 offset-sm-2">
+                <h1 class="title-page mt-5 mb-5 mx-5">Inscription</h1>
+                {# <p>Le meilleur du fast food !!!</p> #}
+            </div>
+        </div>
+    </div>
+
+
+    {% for flash_error in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+    {% endfor %}
+
+    {{ form_errors(registrationForm) }}
+
+    {{ form_start(registrationForm) }}
+
+        <div class="row justify-content-center mt-5 mb-5">
+
+        {# <div class=" col-3 d-flex justify-content-center"> #}
+           <div class=" col-3 ">
+            {{ form_row(registrationForm.email, {
+                'attr': {
+                    'class': 'form-control '
+                }
+            }) }}
+        </div>
+
+        </div>
+        
+        <div class="row justify-content-center mt-5 mb-5">
+
+        <div class="col-3 "> 
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Password',
+                'attr': {
+                    'class': 'form-control '
+                }
+        }) }}
+        </div>
+
+        </div>
+
+        <div class="row justify-content-center mt-5 mb-5">
+        
+        <div class="col-3 d-flex justify-content-center"> 
+        {{ form_row(registrationForm.agreeTerms, {
+            label: 'Accepter les termes',
+                'attr': {
+                    'class': 'ms-2 '
+                }
+        }) }}
+        </div>
+
+        </div>
+        
+       
+
+        <div class="row justify-content-center mt-5 mb-5">
+            <button type="submit" class="btn btn-primary mb-5" style="width: 15rem; height: 3rem;">S'inscrire</button>
+        </div>
+
+    {{ form_end(registrationForm) }}
+
+{% endblock %}
+

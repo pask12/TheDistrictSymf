@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{# {% extends 'base.html.twig' %}
 
 {% block title %}Hello ContactController!{% endblock %}
 
@@ -17,4 +17,68 @@
         <li>Your template at <code>/home/pascal/Bureau/TheDistrictSymfony/templates/contact/index.html.twig</code></li>
     </ul>
 </div>
+{% endblock %} #}
+
+
+{% extends 'base.html.twig' %}
+ {% block body %}   
+
+     
+                 <h1 class="title-page mt-5 mb-5 mx-5">The District Restaurant</h1>
+                 {# <p>Hello World !!!</p> #}
+
+<section>
+    <div class="container-fluid p-0 mt-5">
+      <div class="col justify-content-center">
+
+
+        <div class="d-flex justify-content-center mt-5 mb-5">
+          <form class="contact" action="contacttraitement.php" method="POST" id="formulaire">
+            <div class="row d-inline-flex p-2 mt-5 ">
+              <div class="col">
+                <label for="inputAddress">Nom</label>
+                <input type="text" class="form-control" placeholder="Nom" id="nom" name="nomContact">
+                <!-- <div id="nomChamp" class="form-text text-danger">
+                  Ce champ est obligatoire. -->
+                  <p id="erreur1" style="color: red;"></p>
+                </div>
+              <!-- </div> -->
+              <div class="col">
+                <label for="inputAddress">Prénom</label>
+                <input type="text" class="form-control" placeholder="Prénom" id="prenom">
+                <p id="erreur2" style="color: red;"></p>
+              </div>
+            </div>
+            <br>
+            <div class="row d-inline-flex p-2">
+              <div class="col">
+                <label for="inputAddress">Email</label>
+                <input type="text" class="form-control" placeholder="Email" id="email">
+                <p id="erreur3" style="color: red;"></p>
+              </div>
+              <div class="col">
+                <label for="inputAddress">Téléphone</label>
+                <input type="text" class="form-control" placeholder="Téléphone" id="telephone" name="phoneContact">
+                <p id="erreur4" style="color: red;"></p>
+                <!-- <div id="nomChamp" class="form-text text-danger">
+                  Ce champ est obligatoire.
+                </div> -->
+              </div>
+            </div>
+            <br>
+            <div class="row mt-3 mb-3">
+              <div class="form-group">
+                <label for="demande">Votre demande</label>
+                <textarea class="form-control" id="demande" name="demandeContact" rows="3"></textarea>
+                <p id="erreur6" style="color: red;"></p>
+              </div>
+              <div class="d-flex justify-content-center mt-5 mb-5">
+                <button type="submit" class="envoi btn btn-primary mb-5" id="bouton">Envoyer</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        </div>
+
+    
 {% endblock %}

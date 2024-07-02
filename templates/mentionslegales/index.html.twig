@@ -1,0 +1,68 @@
+{# {% extends 'base.html.twig' %}
+
+{% block title %}Hello MentionslegalesController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Hello {{ controller_name }}! ✅</h1>
+
+    This friendly message is coming from:
+    <ul>
+        <li>Your controller at <code>/home/pascal/Bureau/TheDistrictSymfony/src/Controller/MentionslegalesController.php</code></li>
+        <li>Your template at <code>/home/pascal/Bureau/TheDistrictSymfony/templates/mentionslegales/index.html.twig</code></li>
+    </ul>
+</div>
+{% endblock %} #}
+
+{% extends 'base.html.twig' %}
+ {% block body %}
+     <div class="container">
+         <div class="row mt-5">
+             <div class="col-sm-8 offset-sm-2">
+                 <h1 class="title-page mt-5 mb-5 mx-5">The District Restaurant</h1>
+                 {# <p>Le meilleur du fast food !!!</p> #}
+             </div>
+         </div>
+     </div>
+
+
+     <section class="mx-3 my-3 mt-5 mb-5">
+       <div>
+        <h1>Mentions légales</h1>
+            <div>
+            <br>
+            <h3>Société éditrice du site</h3>
+            <h4>LES NOVATEURS</h4>
+            <p>SAS au capital de 30 600 euros</p>
+            <p>RCS Nanterre n° 828 758 607 00018</p>
+            <p>N° TVA : FR 60 828758607</p>
+            <p>Code NAF : 4791A</p>
+            
+            
+            <h4>Siège social :</h4>
+            <p>240 avenue d'Argenteuil,92600 Asnières sur Seine</p>
+            <p>Tél : 06 20 16 30 84</p>
+            <p>Mail : contact@lesnovateurs.com</p>
+            
+            <h3>Directeur de publication</h3>
+            <p>Alexandre BOUGEROL</p>
+            <p>Mail : alex@e-resto.fr</p>
+            
+            <h3>Hébergeur du site</h3>
+            <h4>OVH</h4>
+            <p>SAS au capital de 10.069.020 euros</p>
+            <p>Siège social :</p>
+            <p>2 rue Kellermann, 59100 Roubaix</p>
+            <p>Tél : 1007</p>
+            <p>Mail : contact@ovh.com</p>
+           
+            </div>
+       </div>
+      </section>
+
+      {% endblock %}
