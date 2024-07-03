@@ -21,64 +21,88 @@
 
 
 {% extends 'base.html.twig' %}
- {% block body %}   
 
-     
-                 <h1 class="title-page mt-5 mb-5 mx-5">The District Restaurant</h1>
-                 {# <p>Hello World !!!</p> #}
+{% block title %}the District : Contactez-nous !{% endblock %}
 
-<section>
-    <div class="container-fluid p-0 mt-5">
-      <div class="col justify-content-center">
+{% block body %}
 
-
-        <div class="d-flex justify-content-center mt-5 mb-5">
-          <form class="contact" action="contacttraitement.php" method="POST" id="formulaire">
-            <div class="row d-inline-flex p-2 mt-5 ">
-              <div class="col">
-                <label for="inputAddress">Nom</label>
-                <input type="text" class="form-control" placeholder="Nom" id="nom" name="nomContact">
-                <!-- <div id="nomChamp" class="form-text text-danger">
-                  Ce champ est obligatoire. -->
-                  <p id="erreur1" style="color: red;"></p>
-                </div>
-              <!-- </div> -->
-              <div class="col">
-                <label for="inputAddress">Prénom</label>
-                <input type="text" class="form-control" placeholder="Prénom" id="prenom">
-                <p id="erreur2" style="color: red;"></p>
-              </div>
+<div class="container">
+        <div class="row mt-5">
+            <div class="col-sm-8 offset-sm-2">
+                <h1 class="title-page mt-5 mb-5 mx-5">Contactez-nous !</h1>
+                {# <p>Le meilleur du fast food !!!</p> #}
             </div>
-            <br>
-            <div class="row d-inline-flex p-2">
-              <div class="col">
-                <label for="inputAddress">Email</label>
-                <input type="text" class="form-control" placeholder="Email" id="email">
-                <p id="erreur3" style="color: red;"></p>
-              </div>
-              <div class="col">
-                <label for="inputAddress">Téléphone</label>
-                <input type="text" class="form-control" placeholder="Téléphone" id="telephone" name="phoneContact">
-                <p id="erreur4" style="color: red;"></p>
-                <!-- <div id="nomChamp" class="form-text text-danger">
-                  Ce champ est obligatoire.
-                </div> -->
-              </div>
-            </div>
-            <br>
-            <div class="row mt-3 mb-3">
-              <div class="form-group">
-                <label for="demande">Votre demande</label>
-                <textarea class="form-control" id="demande" name="demandeContact" rows="3"></textarea>
-                <p id="erreur6" style="color: red;"></p>
-              </div>
-              <div class="d-flex justify-content-center mt-5 mb-5">
-                <button type="submit" class="envoi btn btn-primary mb-5" id="bouton">Envoyer</button>
-              </div>
-            </div>
-          </form>
         </div>
-        </div>
+    </div>
 
+{# <div class="row text-center"> #}
+
+    {{ form_start(form) }}
+   <div class="error">
+   {{form_errors(form)}}
+    </div>
+
+
+
+<div class="row justify-content-center mt-5 mb-5">
+
+
+    {# <div class="col-9 mx-auto mt-4 mb-2"> #}
+  
+    <div class="col-3">
+        {{form_row(form.Nom,{
+              'attr': {
+                    'class': 'form-control '
+                }
+            }) }}
+    </div>
+    </div>
+
+<div class="row justify-content-center mt-5 mb-5">
+    <div class="col-3">
+        {{form_row(form.Prenom,{
+              'attr': {
+                    'class': 'form-control '
+                }
+            }) }}
+    </div>
+</div>
+<div class="row justify-content-center mt-5 mb-5">
+<div class="col-3">
+        {{form_row(form.Email,{
+              'attr': {
+                    'class': 'form-control '
+                }
+            }) }}
+    </div>
+
+    {# <div class="col-9 mx-auto mb-2">
+        {{form_row(form.Email)}}
+    </div> #}
+<div class="row justify-content-center mt-5 mb-5">
+<div class="col-3">
+        {{form_row(form.Telephone,{
+              'attr': {
+                    'class': 'form-control '
+                }
+            }) }}
+    </div>
+</div>
+
+<div class="row justify-content-center mt-3 mb-5">
+<div class="col-3">
+        {{form_row(form.Demande,{
+              'attr': {
+                    'class': 'form-control '
+                }
+            }) }}
+    </div>
+</div>
     
+  <div class="row justify-content-center mt-5 mb-5">
+            <button type="submit" class="btn btn-primary mb-5" style="width: 15rem; height: 3rem;">Envoyer le message</button>
+        </div>
+    </div>
+    {{form_end(form)}}
+    {# </div> #}
 {% endblock %}
