@@ -27,7 +27,68 @@
                  {# <p>Hello World !!!</p> #}
 
                 {# <h2 class="title-page mt-5 mx-5">Votre panier</h2> #}
+<div class="container-fluid mt-5">
+        <div class="row justify-content-center">
+             {# <div class="col-sm-8 offset-sm-2"> #}
+                
+             {% if items | length > 0 %}
 
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th> Produit </th>
+                            <th> Prix </th>
+                            <th> Quantité </th>
+                            <th> Total </th>
+
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in items %}
+                        <tr>
+                            <td>{{item.plat.libelle}}</td>
+                            {# <td>{{item.plat.description}}</td> #}
+                            <td>{{item.plat.prix}}</td>
+                            <td>{{item.quantite}}</td> 
+                            <td>{{item.plat.prix * item.quantite}}</td> 
+                            <td>
+                                <a href="{{ path('app_panier_add', {'id': item.plat.id})}}" class =" btn btn-success">+</a>
+                                <a href="{{ path('app_panier_remove', {'id': item.plat.id})}}" class =" btn btn-warning">-</a>
+                                <a href="{{ path('app_panier_remove', {'id': item.plat.id})}}" class = "btn btn-danger">supprimer </a>
+                            </td>
+                        </tr>
+
+                    {% endfor %}
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3" class="text-right">Total :</td>
+                            <td>{{total}}</td>
+                            <td></td>
+                        </tr>
+                    
+                    </tfoot>
+
+
+                </table>    
+                {# <div class="row justify-content-center mt-5 mb-5">
+            <button type="submit" class="btn btn-primary mb-5" style="width: 15rem; height: 3rem;">Valider le panier</button>
+        </div> #}
+
+                    <a href="{{ path ('app_commande') }}" class="btn btn-primary">Valider le panier </a> 
+            {% else %}
+                <p> Votre panier  est vide ! </p>
+                
+             {% endif %}
+
+
+
+
+            
+        </div>
+    </div>
 
         
         

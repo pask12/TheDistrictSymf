@@ -21,22 +21,22 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-5 mb-2 mb-lg-0 fs-3">
                 <li class="nav-item active pe-4">
-                    <a class="nav-link" href="{{ path('app_accueil') }}">Accueil</a>
+                    <a class="nav-link" href="{{ path('app_accueil') }}" title="Accueil">Accueil</a>
                 </li>
                 <li class="nav-item pe-4">
-                    <a class="nav-link" href="{{ path('app_categorie') }}">Catégorie</a>
+                    <a class="nav-link" href="{{ path('app_categorie') }}" title="Catégorie">Catégorie</a>
                 </li>
                 <li class="nav-item pe-4">
-                    <a class="nav-link" href="{{ path('app_plats') }}">Les Plats</a>
+                    <a class="nav-link" href="{{ path('app_plats') }}" title="Les Plats">Les Plats</a>
                 </li>
                 <li class="nav-item pe-4">
-                    <a class="nav-link" href="{{ path('app_panier') }}">Panier</a>
+                    <a class="nav-link" href="{{ path('app_panier') }}" title="Panier">Panier</a>
                 </li>
                 {# <li class="nav-item pe-4">
                     <a class="nav-link" href="{{ path('app_connexion') }}">Connexion</a>
                 </li> #}
                 <li class="nav-item pe-4">
-                    <a class="nav-link" href="{{ path('app_contact') }}">Contact</a>
+                    <a class="nav-link" href="{{ path('app_contact') }}" title="Contact">Contact</a>
                 </li>
            
                 {# <li class="nav-item dropdown">
@@ -60,11 +60,33 @@
             </form>
              <ul class="navbar-nav ms-5 mb-2 mb-lg-0 fs-5">
                  <li class="nav-item pe-4">
-                    <a class="nav-link" href="{{ path('app_register') }}">Inscription</a>
+                    <a class="nav-link" href="{{ path('app_register') }}" title="Inscription">Inscription</a>
                 </li>
-                <li class="nav-item pe-4">
+                {# <li class="nav-item pe-4">
                     <a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
-                </li>
+                </li> #}
+
+                        {% if app.user %}
+					{# {% if is_granted('ROLE_ADMIN') %}	
+					<li class="nav-item active">
+						<a class="nav-link" href="{{ path('admin_index') }}">Administration</a>
+					</li>
+					{% endif %} #}
+{# la ligne du dessous donne la permission à l'utilisateur doit être authentifié pour accéder à une page,
+mais aucun rôle spécifique n'est nécessaire.  #}
+					{# {% if is_granted('IS_AUTHENTICATED_FULLY') %} #}
+						
+
+							<li class="nav-item">
+								<a class="nav-link nav-link-custom" href="{{ path('app_logout') }}" title="Déconnexion">Déconnexion</a>
+							</li>
+						{% else %}
+							<li class="nav-item">
+								<a class="nav-link nav-link-custom" href="{{ path('app_login') }}" id="monCompteBtn" title="Connexion">Connexion</a>
+							</li>
+						{% endif %}
+
+
               </ul>
         </div>
     </nav>
@@ -84,7 +106,7 @@
 
   <div class=" d-flex justify-content-around py-4 ">
 
-<a href="{{ path('app_politiqueconfidentialite') }}" class="link">Politique de confidentialité</a>
+<a href="{{ path('app_politiqueconfidentialite') }}" class="link" title="Politique de confidentialité">Politique de confidentialité</a>
 <ul class="icons d-flex py-2">
 
 
@@ -122,7 +144,7 @@
 
     </ul>
 
-    <a href="{{ path('app_mentionslegales') }}" class="link">Mentions légales</a>
+    <a href="{{ path('app_mentionslegales') }}" class="link" title="Mentions légales">Mentions légales</a>
 
   </div>
 </footer>

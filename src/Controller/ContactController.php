@@ -17,7 +17,7 @@ class ContactController extends AbstractController
 {
 
     #[Route('/contact', name: 'app_contact', )]
-    #[IsGranted("ROLE_CLIENT")]
+    #[IsGranted("ROLE_CLIENT")] 
     public function mail(Request $request,MailerInterface $mailer)
     {
         $form = $this->createForm(ContactFormType::class);

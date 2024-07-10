@@ -38,10 +38,10 @@
                                 <h1 class="card-title text-dark">{{ plat.libelle }}</h1>
                                 
                                 {# <a> </a> #}
-                                <img class="card-img-top img-card" src="images/images_the_district/food/{{ plat.image }}">
+                                <img class="card-img-top img-card" src="{{ asset('images/images_the_district/food/') }}{{ plat.image }}">
                                 <p class="card-text text-dark mt-4">{{ plat.description }}</p>
                                 <div class="text-center">
-                                <a href="" class="envoi btn btn-primary mt-5">Commander</a>
+                                <a href="{{path('app_panier_add', {'id': plat.id})}}" class="envoi btn btn-primary mt-5">Ajouter au panier</a>
                             </div>
                         </div>
                       </div>  

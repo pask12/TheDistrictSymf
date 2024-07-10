@@ -30,10 +30,10 @@ class ContactFormType extends AbstractType
                     'label' => 'Votre Message',
                     'required' => false
                 ]
-            )
-            ->add('save', SubmitType::class, [
+            );
+           /*  ->add('save', SubmitType::class, [
                 'label' => 'Envoyer le message'
-            ]);
+            ]) */
     }
 
     public function configureOptions(OptionsResolver $resolver): void
