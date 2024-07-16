@@ -23,13 +23,14 @@
 {% extends 'base.html.twig' %}
  {% block body %}   
 
-     
+     <div class="row mt-5">
+        <div class="col-sm-8 offset-sm-2">
                  <h1 class="title-page mt-5 mb-5 mx-5">The District Restaurant</h1>
                  {# <p>Hello World !!!</p> #}
+        </div>
 
-
-     <div class="container-fluid mt-5">
-        <div class="row justify-content-center">
+        <div class="container-fluid mt-5">
+            <div class="row justify-content-center">
                     {% for categorie in categories %}
                         <div class="card col-10 col-md-5 col-lg-4 p-0 mx-3 mt-4 mb-5">
                             <div class="card-body mb-3 ">
@@ -40,6 +41,7 @@
                             </div>
                         </div>
                     {% endfor %}
+            </div>
         </div>
     </div>
    

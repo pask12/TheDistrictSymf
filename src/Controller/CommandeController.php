@@ -45,45 +45,45 @@ class CommandeController extends AbstractController
         $commande->setDateCommande(new \DateTime());
         $commande->setEtat(0);
         $commande->setTotal(0);
-        
-
+    
+        $prix = 0;
+        //dd($panier);
 
         // On parcourt le panier pour créer les détails de commande
         
         foreach($panier as $item => $quantite){
         $detail = new detail();
-        
-
             
             // On va chercher le plat
 
             $plat = $platRepository->find($item);
-            $prix = $plat->getprix();
-            // dd($plat);
+            $prix =$prix + ($quantite * $plat->getprix());
 
             // On crée le détail de commande
 
             $detail->setplat($plat);
-            $plat->setprix($prix);
+            
             $detail->setquantite($quantite);
 
             $commande->adddetail($detail);
 
-            // $total += $prix * $quantite;
-            $commande->setTotal($prix * $quantite);
-
-
-        // On persiste et on flush
-
-            $em->persist($commande);
-            $em->flush();
-            
-            // $session->remove('panier');
-
-            // $this->addflash('message', 'Commande créée avec succès');
-            // return $this->redirectToRoute('app_panier');
-
         }
+        
+        $commande->setTotal($prix);
+        
+        // On persiste et on flush
+        
+        $em->persist($commande);
+        
+        $em->flush();
+        
+        // if($em->flush()){
+
+            // $session->remove('panier');
+            
+        //     $this->addFlash('message', 'Commande créée avec succès');
+        //     return $this->redirectToRoute('app_panier');
+        // }
 
 
         return $this->render('commande/index.html.twig', [

@@ -22,12 +22,17 @@
 {% extends 'base.html.twig' %}
 {% block body %}
 
-
+<div class="container">
+         <div class="row mt-5">
+             <div class="col-sm-8 offset-sm-2">
                 <h1 class="title-page mt-5 mb-5 mx-5">The District Restaurant</h1>
                  {# <p>Hello World !!!</p> #}
+             </div>
+         </div>
+</div> 
 
                 {# <h2 class="title-page mt-5 mx-5">Votre panier</h2> #}
-<div class="container-fluid mt-5">
+<div class="container-fluid mt-5 mb-5">
         <div class="row justify-content-center">
              {# <div class="col-sm-8 offset-sm-2"> #}
                 
@@ -78,8 +83,14 @@
 
                     <a href="{{ path ('app_commande_add') }}" class="btn btn-primary mb-5" style="width: 15rem; height: 3rem;">Valider le panier </a> 
         </div> 
+        </div>
             {% else %}
-                <p> Votre panier  est vide ! </p>
+
+<section  class=" mx-5 my-3 mt-5 mb-5 ">
+
+     <h1 class="title-page text-danger">Votre panier est vide !</h1>
+
+ </section>
                 
              {% endif %}
 

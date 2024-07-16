@@ -1,6 +1,8 @@
 body {
     background-color: #222222;
 }
+
+
 h1, p {
     color: #000000;
 }
@@ -46,6 +48,9 @@ h1, p {
  .icons li{
     list-style: none;
  }
+
+
+
  /* politique confidentialité et mention légale */
 .link{
     text-decoration: none;
@@ -56,6 +61,10 @@ h1, p {
  }
  .link:hover{
     color: green;
+ }
+
+ .ombreblanche{
+    filter: drop-shadow(0rem 0rem 0.15rem #ffffff);
  }
  
 /* card */
@@ -80,8 +89,4 @@ h1, p {
     justify-content:  center;
     position : relative;
  }
-
-
-
-
 
