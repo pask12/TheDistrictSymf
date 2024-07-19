@@ -79,7 +79,7 @@ class CommandeController extends AbstractController
         
         // if($em->flush()){
 
-            // $session->remove('panier');
+        // $session->remove('panier');
             
         //     $this->addFlash('message', 'Commande créée avec succès');
         //     return $this->redirectToRoute('app_panier');

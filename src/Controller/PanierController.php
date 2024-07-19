@@ -14,7 +14,7 @@ class PanierController extends AbstractController
 {
     #[Route('/panier', name: 'app_panier')]
 
-    public function index(SessionInterface $session, PlatRepository $platRepository, ): Response
+    public function index(SessionInterface $session, PlatRepository $platRepository,): Response
     // {
     //     return $this->render('panier/index.html.twig', [
     //         'controller_name' => 'PanierController',
@@ -22,52 +22,53 @@ class PanierController extends AbstractController
     // }
 
     {
-            $panier = $session->get('panier',[]);
+        $panier = $session->get('panier', []);
 
-            $panierWithData =[];
+        $panierWithData = [];
 
-            foreach($panier as $id => $quantite){
-                $panierWithData[]=[
-                    'plat'=>  $platRepository->find($id),
-                    'quantite'=> $quantite
-                ];
-            }
+        foreach ($panier as $id => $quantite) {
+            $panierWithData[] = [
+                'plat' =>  $platRepository->find($id),
+                'quantite' => $quantite
+            ];
+        }
 
-            $total = 0;
+        $total = 0;
 
-            foreach($panierWithData as $item) {
-                $totalItem = $item['plat']->getprix() * $item['quantite'];
-                $total += $totalItem;
-            }
+        foreach ($panierWithData as $item) {
+            $totalItem = $item['plat']->getprix() * $item['quantite'];
+            $total += $totalItem;
+        }
 
 
-            // dd($panierWithData);
+        // dd($panierWithData);
 
-            return $this->render('panier/index.html.twig', [
-                'controller_name' => 'PanierController',
-                'items'=> $panierWithData,
-                'total'=> $total
-            ]);
+        return $this->render('panier/index.html.twig', [
+            'controller_name' => 'PanierController',
+            'items' => $panierWithData,
+            'total' => $total
+        ]);
     }
-    
+
 
 
     #[Route('/panier/add/{id}', name: 'app_panier_add')]
 
     // public function add(int $id, Request $request){
-       public function add(int $id, SessionInterface $session){
+    public function add(int $id, SessionInterface $session)
+    {
 
         // $session= $request->getSession();
 
-        $panier = $session->get('panier',[]);
+        $panier = $session->get('panier', []);
 
-            if(!empty($panier[$id])){
-                $panier[$id]++;
-            }else{
-                $panier[$id]=1;
-            }
+        if (!empty($panier[$id])) {
+            $panier[$id]++;
+        } else {
+            $panier[$id] = 1;
+        }
 
-        
+
 
         $session->set('panier', $panier);
 
@@ -82,14 +83,15 @@ class PanierController extends AbstractController
 
     #[Route('/panier/remove/{id}', name: 'app_panier_remove')]
 
-    public function remove($id, SessionInterface $session){
+    public function remove($id, SessionInterface $session)
+    {
 
-        $panier = $session->get('panier',[]);
+        $panier = $session->get('panier', []);
 
-            if(!empty($panier[$id])){
-                unset($panier[$id]);
-            }
-        $session->set('panier', $panier);  
+        if (!empty($panier[$id])) {
+            unset($panier[$id]);
+        }
+        $session->set('panier', $panier);
 
 
         return $this->redirectToRoute('app_panier');
