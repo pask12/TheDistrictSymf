@@ -4,11 +4,14 @@ namespace App\Controller;
 
 use App\Repository\DetailRepository;
 use App\Repository\PlatRepository;
-use Symfony\Component\HttpFoundation\Request;
+
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+
+
 
 class PanierController extends AbstractController
 {
@@ -89,6 +92,9 @@ class PanierController extends AbstractController
         $panier = $session->get('panier', []);
 
         if (!empty($panier[$id])) {
+            $panier[$id]--;
+        } else {   
+
             unset($panier[$id]);
         }
         $session->set('panier', $panier);
@@ -98,4 +104,23 @@ class PanierController extends AbstractController
         // return $this->render('panier/index.html.twig');
 
     }
+
+    #[Route('/panier/supprimer/{id}', name: 'app_panier_supprimer')]
+
+    public function supprimer($id, SessionInterface $session)
+    {
+
+        $panier = $session->get('panier', []);
+
+        if (!empty($panier[$id])) {
+            unset($panier[$id]);
+        }
+        $session->set('panier', $panier);
+
+
+        return $this->redirectToRoute('app_panier');
+        // return $this->render('panier/index.html.twig');
+
+    }
+    
 }

@@ -25,4 +25,5 @@ class PlatsController extends AbstractController
           ]);
 
     }
+    
 }

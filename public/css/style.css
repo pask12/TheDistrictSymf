@@ -66,6 +66,9 @@ h1, p {
  .ombreblanche{
     filter: drop-shadow(0rem 0rem 0.15rem #ffffff);
  }
+ .ombreblanchetableau{
+   filter : drop-shadow(0rem 0rem 0.05rem #ffffff);
+ }
  
 /* card */
 
