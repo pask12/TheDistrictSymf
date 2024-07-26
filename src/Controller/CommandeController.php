@@ -8,9 +8,9 @@ use App\Entity\Utilisateur;
 use App\Repository\PlatRepository;
 use App\Repository\DetailRepository;
 use App\Repository\CommandeRepository;
-use app\Repository\UtilisateurRepository;
+use App\Repository\UtilisateurRepository;
 use App\Form\ContactFormType;
-use App\Service\mailService;
+use App\Service\MailService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -88,22 +88,22 @@ class CommandeController extends AbstractController
         $em->flush();
 
         // $utilisateur=new Utilisateur();
-        $idUser = $this->getUSER();
+         $idUser = $this->getUSER();
 
 
 
         // recuperer l'utilisateur avec son id
         // Pour cela tu dois créer une methode dans le repository de utilisateur que va recuperer l'utilisateur par son id
-        $utilisateur = $utilisateurRepository->findById($idUser);
+         $utilisateur = $utilisateurRepository->findById($idUser);
 
-        // $emailService->sendCommande('info@thedistrict.com', $utilisateur->getEmail(), $commande);
+         $emailService->sendCommande('info@thedistrict.com', $utilisateur->getEmail(), $commande);
 
 
         // if($em->flush()){
 
-        // $session->remove('panier');
+               $session->remove('panier');
 
-        //     $this->addFlash('message', 'Commande créée avec succès');
+               $this->addFlash('message', 'Commande créée avec succès');
         //     return $this->redirectToRoute('app_panier');
         // }
 

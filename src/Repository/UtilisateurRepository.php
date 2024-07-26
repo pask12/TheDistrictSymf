@@ -10,6 +10,7 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\NonUniqueResultException;
 
 
 
@@ -38,33 +39,32 @@ class UtilisateurRepository extends ServiceEntityRepository implements PasswordU
         $this->getEntityManager()->persist($user);
         $this->getEntityManager()->flush();
     }
-
-    
-
-
-
-    
-
-
-
-
-    
-
-
        /**
-        * @return Utilisateur[] Returns an array of Utilisateur objects
+        * @return Utilisateur|null Returns an array of Utilisateur objects
         */
-       public function findById($id): array
+       public function findById($id): ?Utilisateur
        {
-           return $this->createQueryBuilder('u')
-               ->andWhere('u.id = :id')
-               ->setParameter('id', $id)
-               ->orderBy('u.id', 'ASC')
-               ->setMaxResults(10)
-               ->getQuery()
-               ->getResult()
-           ;
-       }
+        try {
+
+            return $this->createQueryBuilder('u')
+    
+                ->andWhere('u.id = :id')
+    
+                ->setParameter('id', $id)
+    
+                ->getQuery()
+    
+                ->getSingleResult()
+    
+            ;
+    
+        } catch (NonUniqueResultException $e) {
+    
+            // Si plusieurs résultats sont trouvés, on lance une exception
+    
+            throw new \RuntimeException('Multiple users found with the same ID', 0, $e);
+    
+        }
 
     //    public function findOneBySomeField($value): ?Utilisateur
     //    {
@@ -75,4 +75,4 @@ class UtilisateurRepository extends ServiceEntityRepository implements PasswordU
     //            ->getOneOrNullResult()
     //        ;
     //    }
-}
+ }}

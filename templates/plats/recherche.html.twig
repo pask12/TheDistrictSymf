@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+  <h1>Résultats de la recherche</h1>
+  <p>plouf</p>
+
+
+  <ul>
+
+    {% for plat in plats %}
+
+      <li>
+
+        {{ plat.libelle }} ({{ plat.prix }} €)
+
+      </li>
+
+    {% endfor %}
+
+  </ul>
+
+{% endblock %}

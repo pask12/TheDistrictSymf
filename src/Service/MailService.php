@@ -40,10 +40,12 @@ class MailService
         $content .= "<ul>";
 
         foreach ($commande->getDetails() as $item) {
-            $content .= sprintf("<li>%s - %d€</li>", $item->getPlat(), $item->getQuantite());
+        $content .= sprintf("<li>%s - %d x %d€</li>", $item->getPlat()->getLibelle(), $item->getQuantite(), $item->getPlat()->getPrix());
         }
         $content .= "</ul>";
         $content .= sprintf("<p>Total : %d€ </p>", $commande->getTotal());
+
+        return $content; // <--- Add this line
 
     }
 }
