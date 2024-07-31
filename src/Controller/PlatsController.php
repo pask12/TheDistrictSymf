@@ -21,20 +21,20 @@ class PlatsController extends AbstractController
         } else {
           $plats = $platRepository->findByCategorie($categorie_id);
         }
-        dd($plats);
+        // dd($plats);
         return $this->render('plats/index.html.twig', [
             'plats' => $plats,
           ]);
 
     }
 
-    #[Route(['/truc/{motcle}'], name: 'app_plats_recherche', defaults: ['motcle' => NULL]),]
-    //#[Route(['/plats/recherche/{motcle}'], name: 'app_plats_recherche', defaults: ['motcle' => NULL]),]
-    public function recherchePlats(Request $request, PlatRepository $platRepository, $motcle): Response
+    // #[Route(['/truc/{motcle}'], name: 'app_plats_recherche', defaults: ['motcle' => NULL]),]
+    #[Route(['/plats/do/recherche'], name: 'app_plats_recherche'),]
+    public function recherchePlats(Request $request, PlatRepository $platRepository): Response
     {
-
-        //$motcle = $request->query->get('motcle');
-        //dd($motcle);
+        // dd('truc');
+        $motcle = $request->query->get('motcle');
+        // dd($motcle);
 
         $plats = $platRepository->recherchePlats($motcle);
 
